@@ -13,10 +13,9 @@ export default function Reviews() {
   }, []);
   return (
     <ul className="reviews-container">
-      {reviews.length > 0 &&
-        reviews.map((review) => {
-          return <Review key={review.review_id} review={review} />;
-        })}
+      {reviews.map((review) => {
+        return <Review key={review.review_id} review={review} />;
+      })}
     </ul>
   );
 }
