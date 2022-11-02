@@ -1,0 +1,5 @@
+.reviews-container {
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(2, 1fr);
+}

@@ -1,0 +1,8 @@
+.reviews-list {
+  margin: 1rem;
+}
+.review-img {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 10px;
+}
