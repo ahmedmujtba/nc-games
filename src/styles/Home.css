@@ -1,0 +1,11 @@
+.logo-link {
+  text-decoration: none;
+  text-align: left;
+}
+.ul-container {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
