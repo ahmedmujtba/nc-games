@@ -4,7 +4,18 @@ const Url = "https://ahmeds-games-api.herokuapp.com";
 
 export function getReviews() {
   return axios.get(`${Url}/api/reviews`).then((res) => {
-    console.log(res.data);
+    return res.data;
+  });
+}
+
+export function getCategories() {
+  return axios.get(`${Url}/api/categories`).then((res) => {
+    return res.data;
+  });
+}
+
+export function getReviewsByCategory(category) {
+  return axios.get(`${Url}/api/reviews?category=${category}`).then((res) => {
     return res.data;
   });
 }

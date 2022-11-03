@@ -10,6 +10,7 @@ function App() {
       <Home />
       <Routes>
         <Route path="/" element={<Reviews />} />
+        <Route path="/categories/:category" element={<Reviews />} />
       </Routes>
     </div>
   );
