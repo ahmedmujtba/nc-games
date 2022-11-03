@@ -15,5 +15,7 @@ export function getCategories() {
 }
 
 export function getReviewsByCategory(category) {
-  return axios.get(`${Url}/api/reviews?category=${category}`);
+  return axios.get(`${Url}/api/reviews?category=${category}`).then((res) => {
+    return res.data;
+  });
 }

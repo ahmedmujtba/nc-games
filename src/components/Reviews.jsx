@@ -12,34 +12,24 @@ export default function Reviews() {
   const [loading, setLoading] = useState(true);
 
   const { category } = useParams();
-  //for url - wrap category options in link tags, to = go to that specific url
 
   useEffect(() => {
-    getReviews().then(({ reviews }) => {
-      setReviews(reviews);
+    if (category) {
+      getReviewsByCategory(category).then(({ reviews }) => {
+        setReviews(reviews);
+      });
+    } else {
+      getReviews().then(({ reviews }) => {
+        setReviews(reviews);
 
-      setLoading(false);
-    });
+        setLoading(false);
+      });
+    }
 
     getCategories().then(({ categories }) => {
       setCategories(categories);
     });
-  }, []);
-
-  const categoryHandler = (category) => {
-    console.log(category);
-    //on click - new fetch request to get reviews. set reviews with the return
-    getReviewsByCategory(category).then(({ reviews }) => {
-      console.log(reviews);
-      setReviews(reviews);
-    });
-  };
-
-  //   const getUpdatedReviews = () => {
-  //     getReviews().then(({ reviews }) => {
-  //       setReviews(reviews);
-  //     });
-  //   };
+  }, [category]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -50,28 +40,11 @@ export default function Reviews() {
         {categories.map((singleCategory) => {
           return (
             <Link to={`/categories/${singleCategory.slug}`}>
-              <li onClick={categoryHandler} value={singleCategory.slug}>
-                {singleCategory.slug}
-              </li>
+              <li value={singleCategory.slug}>{singleCategory.slug}</li>
             </Link>
           );
         })}
       </ul>
-      {/* <label for="select-category"></label>
-      <input
-        className="btn btn-outline-secondary submit-btn"
-        type="submit"
-        value="Select By Category"
-      ></input> */}
-
-      {/* <button
-        className="btn btn-outline-secondary m-5"
-        onSubmit={() => {
-          setCategories(allReviews);
-        }}
-      >
-        Reset Reviews
-      </button> */}
 
       <ul className="reviews-container">
         {reviews.map((review) => {
