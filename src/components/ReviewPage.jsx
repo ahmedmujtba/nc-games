@@ -33,7 +33,7 @@ export default function ReviewPage() {
           <h3>Owner: {singleReview.review.owner}</h3>
           <p>Review: {singleReview.review.review_body}</p>
           <p>Category: {singleReview.review.category}</p>
-          <p>Created at: {singleReview.review.created_at}</p>
+          <time>Created at: {singleReview.review.created_at}</time>
           <p>Votes: {singleReview.review.votes}</p>
           <button>Show Comments</button>
         </article>
