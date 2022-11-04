@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import ReviewPage from "./ReviewPage";
+
 import "../styles/Review.css";
 
-export default function Review(props) {
+export default function ReviewCard(props) {
   const review = props.review;
+
   return (
     <li className="reviews-list">
       <Link to={`/reviews/${review.review_id}`}></Link>
@@ -15,7 +18,9 @@ export default function Review(props) {
       <h3> Designer: {review.designer}</h3>
       <h3> Owner: {review.owner}</h3>
       <h3>Votes: {review.votes}</h3>
-      <button className="btn btn-outline-secondary m-5">Show Details</button>
+      <Link to={`/reviews/${review.review_id}`}>
+        <button className="btn btn-outline-secondary m-5">Show Details</button>
+      </Link>
     </li>
   );
 }

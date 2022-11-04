@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getReviews, getCategories, getReviewsByCategory } from "../utils/api";
-import Review from "./Review";
+import Review from "./ReviewCard";
 import "../styles/Reviews.css";
 
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
-
   const [categories, setCategories] = useState([]);
-
   const [loading, setLoading] = useState(true);
-
   const { category } = useParams();
 
   useEffect(() => {

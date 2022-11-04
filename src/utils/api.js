@@ -19,3 +19,9 @@ export function getReviewsByCategory(category) {
     return res.data;
   });
 }
+
+export function getSingleReview(review_id) {
+  return axios.get(`${Url}/api/reviews/${review_id}`).then((res) => {
+    return res.data;
+  });
+}
