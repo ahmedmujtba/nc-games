@@ -25,3 +25,10 @@ export function getSingleReview(review_id) {
     return res.data;
   });
 }
+export function patchVotes(review_id, vote) {
+  console.log(vote);
+  return axios.patch(`${Url}/api/reviews/${review_id}`, vote).then((res) => {
+    console.log(res);
+    return res.data;
+  });
+}
